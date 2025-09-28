@@ -11,23 +11,15 @@ describe("Scenario Verifikasi Fungsi Login", () => {
     cy.get('button[type="submit"]').should("be.visible").click();
 
     cy.url().should("include", "/dashboard"); // ini untuk memastikan URL mengandung '/dashboard'
-    cy.get(".oxd-topbar-header-breadcrumb > .oxd-text").should(
-      "have.text",
-      "Dashboard"
-    ); // untuk memastikan teks "Dashboard" muncul
+    cy.get(".oxd-topbar-header-breadcrumb > .oxd-text").should("have.text", "Dashboard"); // untuk memastikan teks "Dashboard" muncul
   });
 
   it("TC_002 - User login menggunakan username benar dan password benar lalu login dengan tombol enter", () => {
     cy.get('input[name="username"]').should("be.visible").type("Admin");
-    cy.get('input[name="password"]')
-      .should("be.visible")
-      .type("admin123{enter}");
+    cy.get('input[name="password"]').should("be.visible").type("admin123{enter}");
 
     cy.url().should("include", "/dashboard");
-    cy.get(".oxd-topbar-header-breadcrumb > .oxd-text").should(
-      "have.text",
-      "Dashboard"
-    );
+    cy.get(".oxd-topbar-header-breadcrumb > .oxd-text").should("have.text","Dashboard");
   });
 
   it("TC_003 - User login menggunakan username salah dan password salah", () => {
@@ -35,10 +27,7 @@ describe("Scenario Verifikasi Fungsi Login", () => {
     cy.get('input[name="password"]').should("be.visible").type("admin123Salah");
     cy.get('button[type="submit"]').should("be.visible").click();
 
-    cy.get(".oxd-alert-content-text").should(
-      "contain.text",
-      "Invalid credentials"
-    );
+    cy.get(".oxd-alert-content-text").should("contain.text","Invalid credentials");
   });
 
   it("TC_004 - User login menggunakan username benar dan password salah", () => {
@@ -46,10 +35,7 @@ describe("Scenario Verifikasi Fungsi Login", () => {
     cy.get('input[name="password"]').should("be.visible").type("admin123Salah");
     cy.get('button[type="submit"]').should("be.visible").click();
 
-    cy.get(".oxd-alert-content-text").should(
-      "contain.text",
-      "Invalid credentials"
-    );
+    cy.get(".oxd-alert-content-text").should("contain.text","Invalid credentials");
   });
 
   it("TC_005 - User login menggunakan username salah dan password benar", () => {
@@ -57,10 +43,7 @@ describe("Scenario Verifikasi Fungsi Login", () => {
     cy.get('input[name="password"]').should("be.visible").type("admin123");
     cy.get('button[type="submit"]').should("be.visible").click();
 
-    cy.get(".oxd-alert-content-text").should(
-      "contain.text",
-      "Invalid credentials"
-    );
+    cy.get(".oxd-alert-content-text").should("contain.text","Invalid credentials");
   });
 
   it("TC_006 - User login dengan username kosong dan password benar", () => {
@@ -68,9 +51,7 @@ describe("Scenario Verifikasi Fungsi Login", () => {
     cy.get('button[type="submit"]').should("be.visible").click();
 
     // Cara validasi pesan required muncul di field username
-    cy.get(":nth-child(2) > .oxd-input-group > .oxd-text")
-      .should("be.visible")
-      .and("have.text", "Required");
+    cy.get(":nth-child(2) > .oxd-input-group > .oxd-text").should("be.visible").and("have.text", "Required");
   });
 
   it("TC_007 - User login dengan username benar dan password kosong", () => {
@@ -78,20 +59,14 @@ describe("Scenario Verifikasi Fungsi Login", () => {
     cy.get('button[type="submit"]').should("be.visible").click();
 
     // Cara validasi pesan required muncul di field password
-    cy.get(":nth-child(3) > .oxd-input-group > .oxd-text")
-      .should("be.visible")
-      .and("have.text", "Required");
+    cy.get(":nth-child(3) > .oxd-input-group > .oxd-text").should("be.visible").and("have.text", "Required");
   });
 
   it("TC_008 - User login dengan username kosong dan password kosong", () => {
     cy.get('button[type="submit"]').should("be.visible").click();
 
     // Cara validasi pesan required muncul di fielad username dan field password
-    cy.get(":nth-child(2) > .oxd-input-group > .oxd-text")
-      .should("be.visible")
-      .and("have.text", "Required");
-    cy.get(":nth-child(3) > .oxd-input-group > .oxd-text")
-      .should("be.visible")
-      .and("have.text", "Required");
+    cy.get(":nth-child(2) > .oxd-input-group > .oxd-text").should("be.visible").and("have.text", "Required");
+    cy.get(":nth-child(3) > .oxd-input-group > .oxd-text").should("be.visible").and("have.text", "Required");
   });
 });

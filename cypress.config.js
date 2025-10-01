@@ -9,5 +9,9 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    env: {
+      reqres: "https://reqres.in/api",
+      reqresApiKey: "reqres-free-v1",
+    },
   },
 });

@@ -12,6 +12,7 @@ module.exports = defineConfig({
     env: {
       reqres: "https://reqres.in/api",
       reqresApiKey: "reqres-free-v1",
+      orangeHrm: "https://opensource-demo.orangehrmlive.com",
     },
   },
 });

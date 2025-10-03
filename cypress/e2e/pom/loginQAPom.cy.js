@@ -8,54 +8,56 @@ describe("Scenario Verifikasi Fungsi Login Orange HRM with POM", () => {
   });
 
   it("TC_001 - [POM] User login menggunakan username benar dan password benar", () => {
-    LoginPage.inputUsername(loginData.validUsername);
-    LoginPage.inputPassword(loginData.validPassword);
-    LoginPage.clickLoginButton();
-    LoginPage.assertionLoginSuccess();
+    LoginPage
+      .inputUsername(loginData.validUsername)
+      .inputPassword(loginData.validPassword)
+      .clickLoginButton()
+      .assertionLoginSuccess();
   });
 
   it("TC_002 - [POM] User login menggunakan username benar dan password benar lalu login dengan tombol enter", () => {
-    LoginPage.inputUsername(loginData.validUsername);
-    LoginPage.inputPassword(loginData.validPassword, {useEnterKey: true});
-    LoginPage.assertionLoginSuccess();
+    LoginPage
+      .inputUsername(loginData.validUsername)
+      .inputPassword(loginData.validPassword, { useEnterKey: true })
+      .assertionLoginSuccess();
   });
 
   it("TC_003 - [POM] User login menggunakan username salah dan password salah", () => {
-    LoginPage.inputUsername(loginData.invalidUsername);
-    LoginPage.inputPassword(loginData.invalidPassword);
-    LoginPage.clickLoginButton();
-    LoginPage.assertionLoginFailed();
+    LoginPage.inputUsername(loginData.invalidUsername)
+      .inputPassword(loginData.invalidPassword)
+      .clickLoginButton()
+      .assertionLoginFailed();
   });
 
   it("TC_004 - [POM] User login menggunakan username benar dan password salah", () => {
-    LoginPage.inputUsername(loginData.validUsername);
-    LoginPage.inputPassword(loginData.invalidPassword);
-    LoginPage.clickLoginButton();
-    LoginPage.assertionLoginFailed();
+    LoginPage.inputUsername(loginData.validUsername)
+      .inputPassword(loginData.invalidPassword)
+      .clickLoginButton()
+      .assertionLoginFailed();
   });
 
   it("TC_005 - [POM] User login menggunakan username salah dan password benar", () => {
-    LoginPage.inputUsername(loginData.invalidUsername);
-    LoginPage.inputPassword(loginData.validPassword);
-    LoginPage.clickLoginButton();
-    LoginPage.assertionLoginFailed();
+    LoginPage.inputUsername(loginData.invalidUsername)
+      .inputPassword(loginData.validPassword)
+      .clickLoginButton()
+      .assertionLoginFailed();
   });
 
   it("TC_006 - [POM] User login dengan username kosong dan password benar", () => {
-    LoginPage.inputPassword(loginData.validPassword);
-    LoginPage.clickLoginButton();
-    LoginPage.assertionRequiredMessageIsShownFieldUsername();
+    LoginPage.inputPassword(loginData.validPassword)
+      .clickLoginButton()
+      .assertionRequiredMessageIsShownFieldUsername();
   });
 
   it("TC_007 - [POM] User login dengan username benar dan password kosong", () => {
-    LoginPage.inputUsername(loginData.validUsername);
-    LoginPage.clickLoginButton();
-    LoginPage.assertionRequiredMessageIsShownFieldPassword();
+    LoginPage.inputUsername(loginData.validUsername)
+      .clickLoginButton()
+      .assertionRequiredMessageIsShownFieldPassword();
   });
 
   it("TC_008 - [POM] User login dengan username kosong dan password kosong", () => {
-    LoginPage.clickLoginButton();
-    LoginPage.assertionRequiredMessageIsShownFieldUsername();
-    LoginPage.assertionRequiredMessageIsShownFieldPassword();
+    LoginPage.clickLoginButton()
+      .assertionRequiredMessageIsShownFieldUsername()
+      .assertionRequiredMessageIsShownFieldPassword();
   });
 });

@@ -1,0 +1,10 @@
+{
+    "validEmNameHalf": "Peter",
+    "validEmNameFull": "Peter Mac Anderson",
+    "validEmNameFull2": "Sania Shaheen",
+    "invalidEmName": "Asal",
+    "validJobTitle": "Chief Financial Officer",
+    "validJobTitle2": "Finance Manager",
+    "validLocationTitle": "New York Sales Office",
+    "validLocationTitle2": "Canadian Regional HQ"
+}
